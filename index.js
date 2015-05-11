@@ -1,6 +1,6 @@
 module.exports = function(options) {
 	var cb = (options && options.variable) || 'cb';
-	var regexp = new RegExp('(?:\\b|&)' + cb + '=([a-zA-Z$_][a-zA-Z0-9$_]*)(?:&|$)');
+	var regexp = new RegExp('(?:\\b|&)' + cb + '=([a-zA-Z$_][\.a-zA-Z0-9$_]*)(?:&|$)');
 	return {
 		reshook: function(server, tile, req, res, result, callback) {
 			if (result.headers['Content-Type'] !== 'application/json') return callback();
