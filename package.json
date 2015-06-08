@@ -1,6 +1,6 @@
 {
   "name": "tilestrata-jsonp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A TileStrata plugin for serving JSON as JSONP",
   "author": "Brian Reavis <brian@naturalatlas.com>",
   "license": "Apache License, v2.0",
