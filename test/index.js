@@ -37,12 +37,12 @@ describe('Response Hook Implementation "jsonp"', function() {
 		});
 		it('should wrap if callback variable present (1)', function(done) {
 			var iface = jsonp({variable: 'cb'});
-			var mockResult = {headers: {'Content-Type': 'application/json'}, buffer: new Buffer('{"message":"ȟello"}', 'utf8'), status: 200};
-			var mockTile = TileRequest.parse('/mylayer/0/0/0/tile.json?cb=callback12125125');
+			var mockResult = {headers: {'Content-Type': 'application/json; charset=UTF-8'}, buffer: new Buffer('{"message":"ȟello"}', 'utf8'), status: 200};
+			var mockTile = TileRequest.parse('/mylayer/0/0/0/tile.json?cb=lu0.lu_13_1594_2964');
 			iface.reshook(null, mockTile, null, null, mockResult, function(err) {
 				assert.isTrue(typeof err === 'undefined');
-				assert.equal(mockResult.headers['Content-Type'], 'text/javascript');
-				assert.equal(mockResult.buffer.toString('utf8'), 'callback12125125({"message":"ȟello"})');
+				assert.equal(mockResult.headers['Content-Type'], 'text/javascript; charset=UTF-8');
+				assert.equal(mockResult.buffer.toString('utf8'), 'lu0.lu_13_1594_2964({"message":"ȟello"})');
 				done();
 			});
 		});
@@ -52,7 +52,7 @@ describe('Response Hook Implementation "jsonp"', function() {
 			var mockTile = TileRequest.parse('/mylayer/0/0/0/tile.json?cb=callback12125125&another');
 			iface.reshook(null, mockTile, null, null, mockResult, function(err) {
 				assert.isTrue(typeof err === 'undefined');
-				assert.equal(mockResult.headers['Content-Type'], 'text/javascript');
+				assert.equal(mockResult.headers['Content-Type'], 'text/javascript; charset=UTF-8');
 				assert.equal(mockResult.buffer.toString('utf8'), 'callback12125125({"message":"ȟello"})');
 				done();
 			});
@@ -63,7 +63,7 @@ describe('Response Hook Implementation "jsonp"', function() {
 			var mockTile = TileRequest.parse('/mylayer/0/0/0/tile.json?var&cb=callback12125125&another');
 			iface.reshook(null, mockTile, null, null, mockResult, function(err) {
 				assert.isTrue(typeof err === 'undefined');
-				assert.equal(mockResult.headers['Content-Type'], 'text/javascript');
+				assert.equal(mockResult.headers['Content-Type'], 'text/javascript; charset=UTF-8');
 				assert.equal(mockResult.buffer.toString('utf8'), 'callback12125125({"message":"ȟello"})');
 				done();
 			});

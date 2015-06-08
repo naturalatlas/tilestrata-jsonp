@@ -3,7 +3,9 @@ module.exports = function(options) {
 	var regexp = new RegExp('(?:\\b|&)' + cb + '=([a-zA-Z$_][\.a-zA-Z0-9$_]*)(?:&|$)');
 	return {
 		reshook: function(server, tile, req, res, result, callback) {
-			if (result.headers['Content-Type'] !== 'application/json') return callback();
+			var contentType = result.headers['Content-Type'];
+			if (!contentType || contentType.substring(0,16) !== 'application/json') return callback();
+
 			if (!tile.qs) return callback();
 			var match = tile.qs.match(regexp);
 			if (!match) return callback();
@@ -14,7 +16,7 @@ module.exports = function(options) {
 			newBuffer.write(result.buffer.toString('utf8'), callbackLength + 1);
 			newBuffer.write(')', newBuffer.length - 1);
 			result.buffer = newBuffer;
-			result.headers['Content-Type'] = 'text/javascript';
+			result.headers['Content-Type'] = 'text/javascript; charset=UTF-8';
 			callback();
 		}
 	};
