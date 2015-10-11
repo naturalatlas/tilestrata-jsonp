@@ -15,7 +15,7 @@
   "keywords": [
     "tilestrata",
     "tilestrata-plugin",
-    "tilestrata-hook"
+    "tilestrata-reshook"
   ],
   "bugs": {
     "url": "https://github.com/naturalatlas/tilestrata-jsonp/issues"
@@ -23,8 +23,8 @@
   "homepage": "https://github.com/naturalatlas/tilestrata-jsonp",
   "dependencies": {},
   "devDependencies": {
-    "chai": "^1.10.0",
-    "mocha": "^2.0.1"
+    "chai": "^3.3.0",
+    "mocha": "^2.3.3"
   },
   "peerDependencies": {
     "tilestrata": ">=1.0.0"

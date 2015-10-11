@@ -2,6 +2,7 @@ module.exports = function(options) {
 	var cb = (options && options.variable) || 'cb';
 	var regexp = new RegExp('(?:\\b|&)' + cb + '=([a-zA-Z$_][\.a-zA-Z0-9$_]*)(?:&|$)');
 	return {
+		name: 'jsonp',
 		reshook: function(server, tile, req, res, result, callback) {
 			var contentType = result.headers['Content-Type'];
 			if (!contentType || contentType.substring(0,16) !== 'application/json') return callback();

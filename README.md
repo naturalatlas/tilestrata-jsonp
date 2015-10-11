@@ -1,6 +1,6 @@
 # tilestrata-jsonp
 [![NPM version](http://img.shields.io/npm/v/tilestrata-jsonp.svg?style=flat)](https://www.npmjs.org/package/tilestrata-jsonp)
-[![Build Status](http://img.shields.io/travis/naturalatlas/tilestrata-jsonp/master.svg?style=flat)](https://travis-ci.org/naturalatlas/tilestrata-jsonp)
+[![Build Status](https://travis-ci.org/naturalatlas/tilestrata-jsonp.svg)](https://travis-ci.org/naturalatlas/tilestrata-jsonp)
 [![Coverage Status](http://img.shields.io/coveralls/naturalatlas/tilestrata-jsonp/master.svg?style=flat)](https://coveralls.io/r/naturalatlas/tilestrata-jsonp)
 
 A [TileStrata](https://github.com/naturalatlas/tilestrata) plugin sending JSON as JSONP (wrapping it in a callback defined in the query string). This allows cross-origin use of utfgrids without setting up CORS.
