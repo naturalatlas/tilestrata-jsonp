@@ -12,10 +12,10 @@ module.exports = function(options) {
 			if (!match) return callback();
 			var callbackName = match[1];
 			var callbackLength = callbackName.length;
-			var newBuffer = new Buffer(result.buffer.length + callbackLength + 2);
-			newBuffer.write(callbackName + '(');
-			newBuffer.write(result.buffer.toString('utf8'), callbackLength + 1);
-			newBuffer.write(')', newBuffer.length - 1);
+			var newBuffer = new Buffer(result.buffer.length + callbackLength * 2 + 28);
+			newBuffer.write('if(typeof ' + callbackName + '==="function"){' + callbackName + '('); // 26 + 2 * callbackName
+			newBuffer.write(result.buffer.toString('utf8'), callbackLength * 2 + 26);
+			newBuffer.write(')}', newBuffer.length - 2);
 			result.buffer = newBuffer;
 			result.headers['Content-Type'] = 'text/javascript; charset=UTF-8';
 			callback();

@@ -42,7 +42,7 @@ describe('Response Hook Implementation "jsonp"', function() {
 			iface.reshook(null, mockTile, null, null, mockResult, function(err) {
 				assert.isTrue(typeof err === 'undefined');
 				assert.equal(mockResult.headers['Content-Type'], 'text/javascript; charset=UTF-8');
-				assert.equal(mockResult.buffer.toString('utf8'), 'lu0.lu_13_1594_2964({"message":"ȟello"})');
+				assert.equal(mockResult.buffer.toString('utf8'), 'if(typeof lu0.lu_13_1594_2964==="function"){lu0.lu_13_1594_2964({"message":"ȟello"})}');
 				done();
 			});
 		});
@@ -53,7 +53,7 @@ describe('Response Hook Implementation "jsonp"', function() {
 			iface.reshook(null, mockTile, null, null, mockResult, function(err) {
 				assert.isTrue(typeof err === 'undefined');
 				assert.equal(mockResult.headers['Content-Type'], 'text/javascript; charset=UTF-8');
-				assert.equal(mockResult.buffer.toString('utf8'), 'callback12125125({"message":"ȟello"})');
+				assert.equal(mockResult.buffer.toString('utf8'), 'if(typeof callback12125125==="function"){callback12125125({"message":"ȟello"})}');
 				done();
 			});
 		});
@@ -64,7 +64,7 @@ describe('Response Hook Implementation "jsonp"', function() {
 			iface.reshook(null, mockTile, null, null, mockResult, function(err) {
 				assert.isTrue(typeof err === 'undefined');
 				assert.equal(mockResult.headers['Content-Type'], 'text/javascript; charset=UTF-8');
-				assert.equal(mockResult.buffer.toString('utf8'), 'callback12125125({"message":"ȟello"})');
+				assert.equal(mockResult.buffer.toString('utf8'), 'if(typeof callback12125125==="function"){callback12125125({"message":"ȟello"})}');
 				done();
 			});
 		});
